@@ -5,7 +5,10 @@
   "main": "app.js",
   "dependencies": {
     "express": "~2.5.11",
-    "mail": "~0.2.3"
+    "jade": "~0.26.3",
+    "moment": "~1.6.2",
+    "lodash": "~0.4.1",
+    "nodemailer": "~0.3.20"
   },
   "devDependencies": {},
   "scripts": {

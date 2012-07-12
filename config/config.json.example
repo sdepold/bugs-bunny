@@ -1,0 +1,13 @@
+{
+  "bugsBunnies": {
+    "me@foo.com": "Michael",
+    "bar@lol.com": "Andreas"
+  },
+  "notifications": {
+    "no-bugs-bunny@aol.com": "I'm not a bugs bunny."
+  }
+  "gmail": {
+    "user": "me@gmail.com",
+    "pass": "**password**"
+  }
+}

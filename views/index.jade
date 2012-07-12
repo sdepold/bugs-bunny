@@ -1,2 +1,12 @@
 h1= title
 p Welcome to #{title}
+
+h2 Registered mail addresses:
+
+ul
+  - for(var address in mailAddresses) {
+    - var username = mailAddresses[address]
+    - var isCurrentBugsBunny = (address == currentBugsBunny.address)
+
+    li= (isCurrentBugsBunny ? '=> ' : '') + username + ' (' + address + ')'
+  - }

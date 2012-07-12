@@ -1,14 +1,8 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express')
-  , routes = require('./routes');
+  , routes  = require('./routes')
+  , helpers = require('./lib/helpers')
 
 var app = module.exports = express.createServer();
-
-// Configuration
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
@@ -34,3 +28,12 @@ app.get('/', routes.index);
 app.listen(3000, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
+
+var scheduleMail = function(nextTimePoint) {
+  setTimeout(function() {
+    helpers.sendMails()
+    scheduleMail(helpers.getTomorrowMorning())
+  }, helpers.getTimeDiff(nextTimePoint))
+}
+scheduleMail(helpers.getTomorrowMorning())
+
