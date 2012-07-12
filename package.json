@@ -8,9 +8,7 @@
     "jade": "~0.26.3",
     "moment": "~1.6.2",
     "lodash": "~0.4.1",
-    "nodemailer": "~0.3.20",
-    "connect": "~1.9.2",
-    "zlib": "~1.0.5"
+    "nodemailer": "~0.3.20"
   },
   "devDependencies": {},
   "scripts": {
