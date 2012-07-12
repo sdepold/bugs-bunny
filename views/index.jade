@@ -1,7 +1,6 @@
 h1= title
-p Welcome to #{title}
 
-h2 Registered mail addresses:
+h2 Possible bugs bunnies:
 
 ul
   - for(var address in mailAddresses) {
@@ -9,4 +8,18 @@ ul
     - var isCurrentBugsBunny = (address == currentBugsBunny.address)
 
     li= (isCurrentBugsBunny ? '=> ' : '') + username + ' (' + address + ')'
+  - }
+
+h2 Current bugs bunny:
+
+ul
+  li= currentBugsBunny.name + ' (' + currentBugsBunny.address + ')'
+
+h2 Additional notified people:
+
+ul
+  - for(var address in notifications) {
+    - var username = notifications[address]
+
+    li= username + ' (' + address + ')'
   - }
