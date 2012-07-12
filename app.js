@@ -31,7 +31,10 @@ app.listen(process.env.PORT || 3000, function(){
 
 var scheduleMail = function(nextTimePoint) {
   setTimeout(function() {
-    helpers.sendMails()
+    if(!isItWeekend) {
+      helpers.sendMails()
+    }
+
     scheduleMail(helpers.getTomorrowMorning())
   }, helpers.getTimeDiff(nextTimePoint))
 }
