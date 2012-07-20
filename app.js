@@ -29,14 +29,15 @@ app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
 
-var scheduleMail = function(nextTimePoint) {
-  setTimeout(function() {
+setTimeout(function() {
+  setInterval(function() {
     if(!helpers.isItWeekend()) {
       helpers.sendMails()
     }
+  }, 1000 * 60 * 60 * 24)
 
-    scheduleMail(helpers.getTomorrowMorning())
-  }, helpers.getTimeDiff(nextTimePoint))
-}
-scheduleMail(helpers.getTomorrowMorning())
+  if(!helpers.isItWeekend()) {
+    helpers.sendMails()
+  }
+}, helpers.getTimeDiff(helpers.getTomorrowMorning()))
 
