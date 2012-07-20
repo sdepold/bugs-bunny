@@ -30,14 +30,13 @@ app.listen(process.env.PORT || 3000, function(){
 });
 
 setTimeout(function() {
-  setInterval(function() {
+  var sendMails = function() {
     if(!helpers.isItWeekend()) {
       helpers.sendMails()
     }
-  }, 1000 * 60 * 60 * 24)
-
-  if(!helpers.isItWeekend()) {
-    helpers.sendMails()
   }
-}, helpers.getTimeDiff(helpers.getTomorrowMorning()))
+
+  setInterval(sendMails, 1000 * 60 * 60 * 24)
+  sendMails()
+}, helpers.getTimeDiff(helpers.getSendTime()))
 
